@@ -1,5 +1,11 @@
+const args = {
+    operation: 3,
+    data: 233,
+    recipients: ['1', '2']
+}
 
-const realizarOperaciones = () => { 
+
+const realizarOperaciones = ( args ) => { 
     const { operation, data, recipients } = args
 
     if (operation === undefined) {
@@ -21,4 +27,10 @@ const realizarOperaciones = () => {
 
    
 }
+
+const time = (ms) => {
+    return new Promise (resolve => setTimeout(resolve, ms))
+}
+
+realizarOperaciones(args)
 
