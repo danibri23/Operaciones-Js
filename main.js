@@ -45,9 +45,29 @@ const realizarOperaciones = ( args ) => {
             console.log(error);
         }
 
-    }
+    } else if ( operation === 3 ) { 
+        const newSum = suma(data)     
 
-   
+        // try {
+        //     const processMessage = async () => {
+        //         const res = await sentMessage(recipients)
+        //         const { sent } = res
+        //         console.log({ sum: newSum, sent });
+        //     }  
+            
+        //     processMessage()
+            
+        // } catch (error) {
+        //     console.log(error);
+        // }
+
+        sentMessage(recipients)
+        .then(res=>
+            {   const { sent } = res
+                console.log({ sum: newSum, sent })
+            })
+        .catch((err)=>{console.log(err)})
+    } 
 }
 
 const suma = ( data ) => {
