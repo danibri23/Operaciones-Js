@@ -27,6 +27,24 @@ const realizarOperaciones = ( args ) => {
 
     if ( operation === 1 ) {
         console.log(suma(data));
+    } 
+
+    else if ( operation === 2 ) {
+        // sentMessage(recipients)
+        // .then(res=>{console.log(res)})
+        // .catch((err)=>{console.log(err)})
+
+        try {
+            const processMessage = async () => {
+                const res = await sentMessage(recipients)
+                console.log(res);
+            }
+            processMessage()
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
    
@@ -42,6 +60,18 @@ const suma = ( data ) => {
     }
 
     return suma
+}
+
+const sentMessage = ( recipients ) => {
+
+    const counterMessage =  recipients.length
+    const seconds = counterMessage * 1000
+
+    return new Promise((resolve) => {
+        time(seconds).then(() => {
+            resolve({ sent: counterMessage })
+        })
+    })
 }
 
 const time = (ms) => {
