@@ -25,7 +25,23 @@ const realizarOperaciones = ( args ) => {
         return
     }
 
+    if ( operation === 1 ) {
+        console.log(suma(data));
+    }
+
    
+}
+
+const suma = ( data ) => {
+    
+    const dataString = data.toString()
+    let suma = 0 
+
+    for ( let i = 0; i < dataString.length; i++ ) {
+        suma += parseInt(dataString[i])
+    }
+
+    return suma
 }
 
 const time = (ms) => {
